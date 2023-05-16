@@ -1,0 +1,135 @@
+{
+    "users":[
+        {
+            "id": 1,
+            "userName": "Ross",
+            "email": "ross.geller@gmail.com",
+            "picture": "https://media.revistagq.com/photos/5cb725b0cd5468d970512e0c/1:1/w_800,h_800,c_limit/ross_geller_friends_1863.jpg",
+            "password": "WeWere0nABreak!"
+        },{
+            "id": 2,
+            "userName": "Rachel",
+            "email": "rachel_green@gmail.com",
+            "picture": "https://d6ehjqrqtzoun.cloudfront.net/c2ae8ebf-b124-4a97-85f8-113c31fe7c2a.jpg",
+            "password": "I_make_VERY_B4D_decisions"
+        },{
+            "id": 3,
+            "userName": "Chandler",
+            "email": "chandler-bing@gmail.com",
+            "picture": "https://pyxis.nymag.com/v1/imgs/079/792/3ed0d94be0a9bd3d023f00532889bab152-30-chandler-bing.rsquare.w330.jpg",
+            "password": "d3sp3rat3ForL0ve"
+        },{
+            "id": 4,
+            "userName": "Phoebe",
+            "email": "phoebe@gmail.com",
+            "picture": "https://i.pinimg.com/originals/d1/4a/45/d14a4532e471137a3d9dfb9080f74bed.jpg",
+            "password": "#smellyCat"
+        },{
+            "id": 5,
+            "userName": "Joey",
+            "email": "joey-tribbiani@gmail.com",
+            "picture": "https://www.indyturk.com/sites/default/files/article/main_image/2020/11/13/508316-1713979277.jpg",
+            "password": "pizza100"
+        },{
+            "id": 6,
+            "userName": "Gunther",
+            "email": "gunther@gmail.com",
+            "picture": "https://media.glamourmagazine.co.uk/photos/61767e12eb21ab0b20155d17/1:1/w_1920,h_1920,c_limit/GUNTHER_251021_%20(2).jpg",
+            "password": "centralPerk"
+        },{
+            "id": 7,
+            "userName": "Jenice",
+            "email": "jenice@gmail.com",
+            "picture": "https://imgs.heart.co.uk/images/238922?width=1200&crop=1_1&signature=RkoYlarTJtM_FPWq5hbtet4NGxw=",
+            "password": "Oh-My-God!"
+        },{
+            "id": 8,
+            "userName": "Monica",
+            "email": "joey-tribbiani@gmail.com",
+            "picture": "https://i.insider.com/5c8279ebeb3ce821ef1247a2?width=700",
+            "password": "7-7-7-7-7"
+        }
+    ],"posts":[
+        {
+            "id": 1,
+            "userId": 1,
+            "title": "Unagi",
+            "article": "Unagi is a state of awereness. Only by achieving true unagi can you be prepared for any danger that may befall you"
+
+        },{
+            "id": 2,
+            "userId": 2,
+            "title": "Boss",
+            "article": "My boss doesn't like me very much..."
+
+        },{
+            "id": 3,
+            "userId": 8,
+            "title": "Parents arrived...",
+            "article": "Ross hasn't worked at the museum for a year!"
+
+        }
+    ],"replies":[
+        {
+            "id": 1,
+            "postId": 1,
+            "userId": 2,
+            "replay": "Isn't that a kind of sushi?"
+        },{
+            "id": 2,
+            "postId": 1,
+            "userId": 4,
+            "replay": "Yeah it is. It's freshwater eel."
+        },{
+            "id": 3,
+            "postId": 1,
+            "userId": 2,
+            "replay": "Ahhh... Salmon skin roll."
+        },{
+            "id": 4,
+            "postId": 2,
+            "userId": 3,
+            "replay": "That's weirdd. I don't think my boss likes me either."
+        },{
+            "id": 5,
+            "postId": 2,
+            "userId": 8,
+            "replay": "No I don't think mine likes either."
+        },{
+            "id": 6,
+            "postId": 2,
+            "userId": 1,
+            "replay": "Maybe it's universal thing"
+        },{
+            "id": 7,
+            "postId": 2,
+            "userId": 5,
+            "replay": "Yeah or maybe it's because you're all hanging around here at 11:30 on a Wednesday!"
+        },{
+            "id": 8,
+            "postId": 3,
+            "userId": 1,
+            "replay": "Monica and Chandler are living together!"
+        },{
+            "id": 9,
+            "postId": 3,
+            "userId": 8,
+            "replay": "Ross married Rachel in Vegas. An got divorced. AGAIN!"
+        },{
+            "id": 10,
+            "postId": 3,
+            "userId": 4,
+            "replay": "I love Jacques Cousteau"
+        },{
+            "id": 11,
+            "postId": 3,
+            "userId": 2,
+            "replay": "I wasn't supposed to put beef in the trifle"
+        },{
+            "id": 12,
+            "postId": 3,
+            "userId": 5,
+            "replay": "I wanna GOOOOOOO"
+        }
+    ]
+}
