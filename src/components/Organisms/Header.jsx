@@ -38,7 +38,7 @@ const Header = () => {
             </div>
             <input type="text" />
             <div>
-            <NavLink >
+            <NavLink to="/login">
                 <button className="login">Login</button>
             </NavLink>
             <NavLink>
