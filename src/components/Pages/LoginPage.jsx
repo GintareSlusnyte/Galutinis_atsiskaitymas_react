@@ -18,6 +18,7 @@ const StyledForm = styled.form`
   gap: 30px;
   box-shadow: 0 0 1px;
   #submit{
+    cursor: pointer;
     background-color: #00b3e8;
     border:1px solid black;
   }
@@ -43,7 +44,7 @@ const LoginPage = () => {
 
     const formSubmit = e => {
         e.preventDefault();
-        const loggedInUser = users.find(user => user.userName === formInputs.userName && (formInputs.password, user.password));
+        const loggedInUser = users.find(user => user.userName === formInputs.userName &&  user.password === formInputs.password);
 
         if(loggedInUser){
             setCurrentUser(loggedInUser);
