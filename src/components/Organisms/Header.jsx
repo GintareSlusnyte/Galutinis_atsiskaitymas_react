@@ -19,6 +19,7 @@ const StyledHeader = styled.header`
     a{
         margin:10px;
         >button{
+            cursor: pointer;
             border: 1px solid black;
         }
         .login{
@@ -34,14 +35,16 @@ const Header = () => {
     return ( 
         <StyledHeader>
             <div>
+                <NavLink to="/">
                 <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Friends_logo.svg/800px-Friends_logo.svg.png" alt="logo" />
+                </NavLink>
             </div>
             <input type="text" />
             <div>
             <NavLink to="/login">
                 <button className="login">Login</button>
             </NavLink>
-            <NavLink>
+            <NavLink to="/register">
                 <button className="signIn">Sign In</button> 
             </NavLink>
             </div>
