@@ -10,10 +10,13 @@ const StyledPost = styled.div`
   margin: 10px 50px;
   height: 130px;
   box-shadow: 0 0 1px;
+
+  background-color: #ebe9e9;
 `;
 
 const StyledUser = styled.div`
     padding: 10px;
+    padding-left: 10px;
     display: flex;
     justify-content: center;
     height: 90px;
@@ -33,15 +36,7 @@ const Post = ({ data }) => {
     
     return ( 
         <StyledPost>
-            {
-                currentUser && data.userId === currentUser.id &&
-                <button
-                    onClick={ () => setPosts({
-                        type: PostsActionTypes.delete,
-                        id: data.id
-                    }) }
-                >Delete Post</button>
-            }
+            
                 <StyledUser>
                 { 
                     users.length ? 
@@ -50,6 +45,16 @@ const Post = ({ data }) => {
                             <p>{user.userName}</p>
                         </div>: <p>loading user....</p>
                 }
+                        {
+                            currentUser && data.userId === currentUser.id &&
+                            <button
+                                onClick={ () => setPosts({
+                                    type: PostsActionTypes.delete,
+                                    id: data.id
+                                }) }
+                            >Delete Post</button>
+                        }
+                
                 </StyledUser>
             <div>
                     <h2>{data.title}</h2>
