@@ -4,6 +4,7 @@ import { useNavigate } from "react-router";
 import UsersContext from "../../contexts/UsersContext";
 
 const StyledMain = styled.main`
+    height: calc(100vh - 230px);
     text-align: center;
     margin: 50px auto;
 `
