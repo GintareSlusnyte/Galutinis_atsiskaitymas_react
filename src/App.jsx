@@ -4,6 +4,7 @@ import Header from './components/Organisms/Header';
 import HomePage from './components/Pages/HomePage';
 import LoginPage from './components/Pages/LoginPage';
 import RegisterPage from './components/Pages/RegisterPage';
+import Footer from './components/Organisms/Footer';
 
 const App = () => {
   return (
@@ -15,6 +16,8 @@ const App = () => {
         <Route path='/login' element={<LoginPage />}/>
         <Route path='/register' element={<RegisterPage />}/>
       </Routes>
+
+      <Footer />
     </>
   );
 }
