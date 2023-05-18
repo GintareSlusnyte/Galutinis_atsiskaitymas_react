@@ -13,7 +13,7 @@ const PostoKortelesPage = () => {
     return ( 
         <main>
             <h1>Profile</h1>
-            <NavLink to="/addNewPost">
+            <NavLink to="/newPost">
                 <button>Add New Post</button>
             </NavLink>
             <div>

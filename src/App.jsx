@@ -6,6 +6,7 @@ import LoginPage from './components/Pages/LoginPage';
 import RegisterPage from './components/Pages/RegisterPage';
 import Footer from './components/Organisms/Footer';
 import PostoKortelesPage from './components/Pages/PostoKortelesPage';
+import AddNewPost from './components/Pages/AddNewPost';
 
 const App = () => {
   return (
@@ -17,6 +18,7 @@ const App = () => {
         <Route path='/login' element={<LoginPage />}/>
         <Route path='/register' element={<RegisterPage />}/>
         <Route path='/profile' element={<PostoKortelesPage />}/>
+        <Route path='/newPost' element={<AddNewPost />}/>
       </Routes>
 
       <Footer />
