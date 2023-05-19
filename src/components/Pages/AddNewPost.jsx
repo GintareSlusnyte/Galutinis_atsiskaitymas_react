@@ -46,7 +46,7 @@ const AddNewPost = () => {
             ...formInputs,
             [e.target.name]:e.target.value
         });
-    }
+    };
 
     const formHandler = e => {
         e.preventDefault();

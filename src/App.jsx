@@ -21,7 +21,7 @@ const App = () => {
         <Route path='/register' element={<RegisterPage />}/>
         <Route path='/profile' element={<PostoKortelesPage />}/>
         <Route path='/newPost' element={<AddNewPost />}/>
-        <Route path='comments' element={<CommentsPage />}/>
+        <Route path='comments/:id' element={<CommentsPage />}/>
       </Routes>
 
       <Footer />
