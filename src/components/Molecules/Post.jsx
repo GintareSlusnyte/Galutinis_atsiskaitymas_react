@@ -66,7 +66,7 @@ const Post = ({ data }) => {
                 
                 </StyledUser>
             <div>
-                    <NavLink to="/comments">
+                    <NavLink to={`/comments/${data.id}`}>
                         <h2>{data.title}</h2>
                         <p>{data.article}</p>
                     </NavLink>
