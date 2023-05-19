@@ -2,6 +2,7 @@ import { useContext } from "react";
 import UsersContext from "../../contexts/UsersContext";
 import PostsContext from "../../contexts/PostsContext";
 import styled from "styled-components";
+import { NavLink } from "react-router-dom";
 
 const StyledPost = styled.div`
   display: flex;
@@ -12,6 +13,14 @@ const StyledPost = styled.div`
   box-shadow: 0 0 1px;
 
   background-color: #ebe9e9;
+
+  a{
+    color: black;
+    text-decoration: none;
+  }
+  a:hover{
+        color: #00b3e8;
+    }
 `;
 
 const StyledUser = styled.div`
@@ -57,8 +66,10 @@ const Post = ({ data }) => {
                 
                 </StyledUser>
             <div>
-                    <h2>{data.title}</h2>
-                    <p>{data.article}</p>
+                    <NavLink to="/comments">
+                        <h2>{data.title}</h2>
+                        <p>{data.article}</p>
+                    </NavLink>
             </div>
         </StyledPost>
         

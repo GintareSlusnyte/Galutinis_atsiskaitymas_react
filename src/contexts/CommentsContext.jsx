@@ -1,13 +1,13 @@
 import { createContext, useReducer, useEffect } from "react";
 
 const CommentsContext = createContext();
-const CommentsActionType = {
+const CommentsActionTypes = {
     get: 'get_all_comments'
 };
 
 const reducer = (state, action) => {
     switch(action.type){
-        case CommentsActionType.get:
+        case CommentsActionTypes.get:
             return action.data;
         default:
             return state;
@@ -23,7 +23,7 @@ const CommentsProvider = ({ children }) => {
         fetch(`http://localhost:8080/replies`)
         .then(res => res.json())
         .then(data => setComments({
-            type: CommentsActionType.get,
+            type: CommentsActionTypes.get,
             data: data
         }));
     },[]);
@@ -33,7 +33,7 @@ const CommentsProvider = ({ children }) => {
             value={{
                 comments,
                 setComments,
-                CommentsActionType
+                CommentsActionTypes
             }}
         >
             { children }

@@ -7,6 +7,8 @@ import RegisterPage from './components/Pages/RegisterPage';
 import Footer from './components/Organisms/Footer';
 import PostoKortelesPage from './components/Pages/PostoKortelesPage';
 import AddNewPost from './components/Pages/AddNewPost';
+import CommentsPage from './components/Pages/CommentsPage';
+
 
 const App = () => {
   return (
@@ -19,6 +21,7 @@ const App = () => {
         <Route path='/register' element={<RegisterPage />}/>
         <Route path='/profile' element={<PostoKortelesPage />}/>
         <Route path='/newPost' element={<AddNewPost />}/>
+        <Route path='comments' element={<CommentsPage />}/>
       </Routes>
 
       <Footer />
