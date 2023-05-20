@@ -1,10 +1,8 @@
 import { useContext } from "react";
 import PostsContext from "../../contexts/PostsContext";
-import UsersContext from "../../contexts/UsersContext";
 import Post from "../Molecules/Post";
 import styled from "styled-components";
-import CommentsContext from "../../contexts/CommentsContext";
-import Comment from "../Molecules/Comment";
+
 
 const StyledMain = styled.main`
     background-color: #ffffff8b;
@@ -26,7 +24,7 @@ const StyledMain = styled.main`
 const HomePage = () => {
 
     const { posts } = useContext(PostsContext);
-    const { comments } = useContext(CommentsContext);
+    
     
 
     return ( 
@@ -48,16 +46,7 @@ const HomePage = () => {
                         )
                 }
             </div>
-            <div>
-                {
-                    comments.map(comment => 
-                        <Comment 
-                        key={comment.id}
-                        data={comment}
-                        />
-                    )
-                }
-            </div>
+            
         </StyledMain>
      );
 }
