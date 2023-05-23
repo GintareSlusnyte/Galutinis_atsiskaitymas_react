@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { useContext, useState } from "react";
-import { useNavigate } from "react-router";
+import { useNavigate, useParams } from "react-router-dom";
 import UsersContext from "../../contexts/UsersContext";
 import { v4 as generatedId } from 'uuid';
 
@@ -75,7 +75,7 @@ const RegisterPage = () => {
               type: UsersActionTypes.update,
               data: updatedUsers
             });
-            navigate("/profile");
+            navigate(`/profile/`);
           } else {
             // Handle error if the request fails
             console.error('Failed to add user.');

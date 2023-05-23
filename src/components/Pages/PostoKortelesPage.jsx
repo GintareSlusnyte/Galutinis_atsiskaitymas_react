@@ -10,9 +10,6 @@ const PostoKortelesPage = () => {
     const { posts } = useContext(PostsContext)
     const { currentUser } = useContext(UsersContext);
 
-    if (!currentUser) {
-        return <div>Loading...</div>; // or any other appropriate loading indicator
-    }
 
     return ( 
         <main>

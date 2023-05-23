@@ -64,6 +64,8 @@ const Post = ({ data }) => {
     const { users, currentUser } = useContext(UsersContext);
     const { setPosts, PostsActionTypes } = useContext(PostsContext);
     const user = users.find(el => el.id === data.userId);
+
+    
     
     return ( 
         <StyledPost>
@@ -87,14 +89,26 @@ const Post = ({ data }) => {
             </div>
 
             {
-                            currentUser && data.userId === currentUser.id &&
-                            <button
-                                onClick={ () => setPosts({
-                                    type: PostsActionTypes.delete,
-                                    id: data.id
-                                }) }
-                            >Delete</button>
-                        }
+                currentUser && data.userId === currentUser.id &&
+                <button
+                    onClick={ () => setPosts({
+                    type: PostsActionTypes.delete,
+                    id: data.id
+                    }) }
+                    >Delete</button>
+            }
+
+{
+                currentUser && data.userId === currentUser.id &&
+                <button
+                    onClick={ () => setPosts({
+                    type: PostsActionTypes.edit,
+                    id: data.id
+                    }) }
+                    >Edit</button>
+            }
+            
+
         </StyledPost>
                 
         

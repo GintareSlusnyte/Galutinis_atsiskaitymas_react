@@ -66,18 +66,17 @@ const AddNewPost = () => {
             });
 
             if (response.ok) {
-                // Post added successfully
+                console.log('pavyko')
                 setPosts({
                     type: PostsActionTypes.add,
                     data: newPost
                 });
                 navigate('/');
             } else {
-                // Handle error if the request fails
-                console.error('Failed to add post.');
+                console.log(response)
             }
         } catch (error) {
-            console.error('An error occurred while adding the post:', error);
+            console.error('ERORAS', error);
         }
     };
 
