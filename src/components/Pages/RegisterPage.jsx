@@ -5,12 +5,25 @@ import UsersContext from "../../contexts/UsersContext";
 import { v4 as generatedId } from 'uuid';
 
 const StyledMain = styled.main`
+
+  background-color: #ffffff8b;
+    background-image: url('https://www.travelandleisure.com/thmb/44-4gLqFVAtX1Ja_KQldq9nif_k=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/friends-central-perk-new-york-CENTRALPERK1117-46b8d89f2f334d5f85b306abd47fd70e.jpg');
+    background-blend-mode: lighten;
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    height: calc(100vh - 130px);
     text-align: center;
-    margin: 50px auto;
+
+    h1{
+      margin: 0;
+      padding: 20px;
+    }
     >form{
+      background-color: #ffffffd1;
         height: 350px;  
         width: 450px;
-        margin: 50px auto;
+        margin: 0px auto;
         display: flex;
         flex-direction: column;
         align-items: center;

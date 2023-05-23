@@ -7,38 +7,25 @@ const StyledHeader = styled.header`
     display: flex;
     justify-content: space-between;
     align-items: center;
-    gap: 10px;
-    height: 60px;
-    padding: 0 50px;
     border-bottom: 1px solid black;
-    .logo img{
-        height: 20px;
-        width: 100px;
-    }
-    >input{
-        width: 900px;
-    }
+
+
     .user, .profile{
         display: flex;
         justify-content: center;
         align-items: center;
-        gap: 20px;
+        
         >img{
-            height: 40px;
-            width: 40px;
             border-radius: 50%;
         }
         >a{
             text-decoration: none;
-            font-size: 14px;
             color: black;
         }
         button{
             cursor: pointer;
             border: none;
             box-shadow: 0 0 1px;
-            font-size: 13px;
-            padding: 2px 6px;
         }
         .signIn{
             background-color: #ea1b21;
@@ -50,8 +37,68 @@ const StyledHeader = styled.header`
             background-color: #fabc15;
         }
     }
-    
-`
+
+    @media (max-width: 800px){
+        gap: 5px;
+        height: 60px;
+        padding: 0 30px;
+        .logo img{
+        height: 20px;
+        width: 60px;
+    }
+        >input{
+            width: 400px;
+            height: 10px;
+        }
+        .user, .profile{
+            gap: 10px;
+
+            >img{
+                height: 30px;
+                width: 30px;
+                border-radius: 50%;
+            };
+            >a{
+                font-size: 12px;
+            }
+            button{
+                font-size: 12px;
+                padding: 2px 4px;
+            }
+        }
+    };
+
+
+    @media (min-width: 800px){
+        gap: 10px;
+        height: 60px;
+        padding: 0 50px;
+        .logo img{
+        height: 20px;
+        width: 100px;
+    }
+        >input{
+            width: 900px;
+        }
+        .user, .profile{
+            gap: 20px;
+
+            >img{
+                height: 40px;
+                width: 40px;
+                border-radius: 50%;
+            }
+
+            >a{
+                font-size: 14px;
+            }
+            button{
+                font-size: 13px;
+                padding: 2px 6px;
+            }
+        }
+    }
+`;
 
 const Header = () => {
 
@@ -69,7 +116,7 @@ const Header = () => {
             {    
                 currentUser ? 
             <>
-                <NavLink to="/profile"><div className="profile">
+                <NavLink to="/profile/:id"><div className="profile">
                     <img className="userImg" src={currentUser.picture} alt="user picture" />
                     <p>{currentUser.userName}</p>
                 </div></NavLink>

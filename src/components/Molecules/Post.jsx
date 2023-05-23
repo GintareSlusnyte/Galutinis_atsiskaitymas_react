@@ -5,14 +5,13 @@ import styled from "styled-components";
 import { NavLink } from "react-router-dom";
 
 const StyledPost = styled.div`
-    position: relative;
     display: flex;
     flex-direction: column;
     gap: 5px;
 div{
     display: flex;
     align-items: center;
-     gap: 30px;
+    gap: 30px;
 }
   
   margin: 10px 50px;
@@ -28,13 +27,13 @@ div{
   a:hover{
         color: #00b3e8;
     }
-    button{
-        position: absolute;
-        bottom: 5px;
-        right: 20px;
-        font-size: 10px;
-        width: 50px;
+
+    @media (max-width: 800px){
+        p{
+            font-size: 14px;
+        }
     }
+
 `;
 
 const StyledUser = styled.div`
@@ -51,9 +50,23 @@ const StyledUser = styled.div`
     p{
         margin: 5px;
     }
-    div >img{
+    
+
+    @media (max-width: 800px){
+        div >img{
+        height: 40px;
+        border-radius: 50%;
+        }
+        div>p{
+            font-size: 14px;
+        }
+    }
+
+    @media (min-width: 800px){
+        div >img{
         height: 60px;
         border-radius: 50%;
+        }
     }
 
 `;
@@ -87,30 +100,6 @@ const Post = ({ data }) => {
                         </NavLink>
                 </div>
             </div>
-
-            {
-                currentUser && data.userId === currentUser.id &&
-                <NavLink to={`/comments/${data.id}`}>
-                    <button
-                    onClick={ () => setPosts({
-                    type: PostsActionTypes.delete,
-                    id: data.id
-                    }) }
-                    >Delete</button>
-                </NavLink>
-            }
-
-{
-                currentUser && data.userId === currentUser.id &&
-                <NavLink to={`/comments/${data.id}`}>
-                    <button
-                    onClick={ () => setPosts({
-                    type: PostsActionTypes.edit,
-                    id: data.id
-                    }) }
-                    >Edit</button>
-                </NavLink>
-            }
             
 
         </StyledPost>

@@ -24,11 +24,10 @@ const StyledMain = styled.main`
 `;
 
 const StyledPost = styled.div`
-position: relative;
+  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: 10px;
   margin: 10px 50px;
   padding: 15px;
   height: 100px;
@@ -58,14 +57,72 @@ position: relative;
         border-radius: 50%;
         margin-bottom: 10px;
     }
-    >button{
+    >a{
         position: absolute;
-        bottom: 5px;
+        bottom: 10px;
+        left:20px;
+    }
+  }
+
+  
+  @media (max-width: 800px){
+    >.user{
+    gap: 5px;
+    >p{
+        padding-top:10px;
+    }
+    >img{
+        height: 40px;
+    }
+    >a.delete{
+        left:20px;
+        height: 20px;
+        width: 30px;
+        font-size: 10px;
+    }
+    >a.comment{
+        left:50px;
+        height: 20px;
+        width: 30px;
+        font-size: 10px;
+    }
+    >a.edit{
+        left:85px;
+        height: 20px;
+        width: 30px;
+        font-size: 10px;
+    }
+  }
+  }
+
+  @media (min-width: 800px){
+    >.user{
+    gap: 10px;
+    >p{
+        padding-top:15px;
+    }
+    >img{
+        height: 50px;
+    }
+    >a.delete{
         left:20px;
         height: 20px;
         width: 50px;
         font-size: 10px;
     }
+    >a.comment{
+        left:50px;
+        height: 20px;
+        width: 50px;
+        font-size: 10px;
+    }
+    >a.edit{
+        left:85px;
+        height: 20px;
+        width: 50px;
+        font-size: 10px;
+    }
+  }
   }
 `;
 
@@ -88,6 +145,13 @@ position: relative;
     padding-top: 10px;
   }
 
+    >button{
+        position: absolute;
+        bottom: 10px;
+        left:20px;
+    }
+  
+
   >.user{
     display: flex;
     justify-content: flex-end;
@@ -98,19 +162,56 @@ position: relative;
         padding-top: 20px;
     }
     >img{
-        height: 40px;
         border-radius: 50%;
         margin-bottom: 10px;
     }
-    >button{
-        position: absolute;
-        bottom: 5px;
-        left:20px;
-        height: 20px;
-        width: 50px;
-        font-size: 10px;
-    }
   }
+
+  @media (max-width: 800px){
+    >.user >img{
+      height: 30px;
+    }
+        >.user >a.delete {
+          position: absolute;
+          bottom: 5px;
+          left:20px;
+          height: 20px;
+          width: 50px;
+          font-size: 8px;
+        }
+        >.user >a.edit {
+          position: absolute;
+          bottom: 5px;
+          left:50px;
+          height: 20px;
+          width: 50px;
+          font-size: 8px;
+        }
+  }
+  
+
+  @media (min-width: 800px){
+    >.user >img{
+      height: 40px;
+    }
+    >.user >a.delete {
+          position: absolute;
+          bottom: 5px;
+          left:20px;
+          height: 20px;
+          width: 50px;
+          font-size: 8px;
+        }
+        >.user >a.edit {
+          position: absolute;
+          bottom: 5px;
+          left:50px;
+          height: 20px;
+          width: 50px;
+          font-size: 8px;
+        }
+  }
+
 `;
 
 const CommentsPage = () => {
@@ -183,20 +284,20 @@ const CommentsPage = () => {
               <div className="user">
                 {
                   currentUser && post.userId === currentUser.id && 
-                  <NavLink to="/">
+                  <NavLink className='delete' to="/">
                     <button onClick={deletePost}><FontAwesomeIcon icon={faTrash} /></button>
                   </NavLink>
                 }
 
                 {
                   currentUser && 
-                    <NavLink to={`/newComment/${post.id}`}>
+                    <NavLink  className='comment' to={`/newComment/${post.id}`}>
                       <button><FontAwesomeIcon icon={faComments} /></button>
                     </NavLink>
                 }
                 {
                   currentUser && post.userId === currentUser.id && 
-                    <NavLink to={`/editpost/${post.id}`}>
+                    <NavLink className='edit' to={`/editpost/${post.id}`}>
                       <button><FontAwesomeIcon icon={faPenToSquare} /></button>
                     </NavLink>
                 }
@@ -230,14 +331,14 @@ const CommentsPage = () => {
                     <div className="user">
                       {
                         currentUser && comment.userId === currentUser.id && 
-                        <NavLink to="/">
+                        <NavLink className='delete' to="/">
                           <button onClick={() => deleteComment(comment.id)}><FontAwesomeIcon icon={faTrash} /></button>
                         </NavLink>
                       }
 
                       {
                         currentUser && comment.userId === currentUser.id && 
-                        <NavLink to={`/editComment/${comment.id}`}>
+                        <NavLink className='edit' to={`/editComment/${comment.id}`}>
                           <button><FontAwesomeIcon icon={faPenToSquare} /></button>
                         </NavLink>
                       }
@@ -268,7 +369,7 @@ const CommentsPage = () => {
 
                   {
                     currentUser && newComment.userId === currentUser.id && 
-                      <NavLink to={`/editComment/${comments.id}`}>
+                      <NavLink className='delete' to={`/editComment/${comments.id}`}>
                         <button><FontAwesomeIcon icon={faPenToSquare} /></button>
                       </NavLink>
                   }

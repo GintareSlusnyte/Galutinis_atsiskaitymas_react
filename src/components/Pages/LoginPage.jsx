@@ -4,11 +4,23 @@ import { useNavigate } from "react-router";
 import UsersContext from "../../contexts/UsersContext";
 
 const StyledMain = styled.main`
-    height: calc(100vh - 230px);
+
+    background-color: #ffffff8b;
+    background-image: url('https://www.travelandleisure.com/thmb/44-4gLqFVAtX1Ja_KQldq9nif_k=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/friends-central-perk-new-york-CENTRALPERK1117-46b8d89f2f334d5f85b306abd47fd70e.jpg');
+    background-blend-mode: lighten;
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    height: calc(100vh - 130px);
     text-align: center;
-    margin: 50px auto;
+    margin: 0 auto;
+    h1{
+        margin: 0;
+        padding:15px;
+    }
 `
 const StyledForm = styled.form`
+    background-color: #ffffffd1;
   height: 300px;  
   width: 400px;
   margin: 50px auto;

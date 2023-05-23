@@ -10,15 +10,18 @@ const StyledMain = styled.main`
     background-blend-mode: lighten;
     background-size: cover;
     background-repeat: no-repeat;
+    background-attachment: fixed;
 
-    height: calc(100vh - 130px);
+
+    /* height: calc(100vh - 130px); */
 
     h1{
         margin-top: 0;
         padding-top: 20px;
         text-align: center;
     }
-`
+    
+`;
 
 
 const HomePage = () => {
@@ -31,10 +34,6 @@ const HomePage = () => {
         <StyledMain>
             <h1>Posts</h1>
 
-            <div>
-                <button>Theme</button>
-                <button>Filter</button>
-            </div>
 
             <div>
                 {

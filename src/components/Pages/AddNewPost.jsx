@@ -6,12 +6,21 @@ import PostsContext from "../../contexts/PostsContext";
 import styled from "styled-components";
 
 const StyledMain = styled.main`
+    background-color: #ffffff8b;
+    background-image: url('https://www.travelandleisure.com/thmb/44-4gLqFVAtX1Ja_KQldq9nif_k=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/friends-central-perk-new-york-CENTRALPERK1117-46b8d89f2f334d5f85b306abd47fd70e.jpg');
+    background-blend-mode: lighten;
+    background-size: cover;
+    background-repeat: no-repeat;
+
     height: calc(100vh - 150px);
+
     text-align: center;
     h1 {
         padding: 15px;
+        margin: 0px;
     }
     >form {
+        background-color: #ffffffd1;
         margin: 100px auto;
         height: 400px;
         width: 500px;
@@ -25,8 +34,16 @@ const StyledMain = styled.main`
             margin: 10px;
             width: 350px;
         }
-        #article {
-            height: 200px;
+        textarea{
+            margin: 10px;
+        }
+        #submit{
+        background-color: #fabc15;
+        cursor: pointer;
+        border: none;
+        box-shadow: 0 0 1px;
+        padding: 2px 6px;
+        text-align: center;
         }
     }
 `;
@@ -96,15 +113,18 @@ const AddNewPost = () => {
                 </div>
                 <div>
                     <label htmlFor="article">Article:</label>
-                    <input
-                        type="text"
-                        name="article"
-                        id="article"
+
+                    <textarea 
+                        name="article" 
+                        id="article" 
+                        cols="46" 
+                        rows="10"
                         value={formInputs.article}
-                        onChange={inputHandler}
-                    />
+                        onChange={inputHandler}>
+                    </textarea>
+                    
                 </div>
-                <input type="submit" value="Create New Post" />
+                <input type="submit" id="submit" value="Create New Post" />
             </form>
         </StyledMain>
     );
