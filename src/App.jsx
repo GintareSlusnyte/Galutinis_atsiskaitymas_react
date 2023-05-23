@@ -1,5 +1,5 @@
 import './App.css';
-import { Routes, Route, useNavigate } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 import Header from './components/Organisms/Header';
 import HomePage from './components/Pages/HomePage';
 import LoginPage from './components/Pages/LoginPage';
@@ -10,6 +10,7 @@ import AddNewPost from './components/Pages/AddNewPost';
 import CommentsPage from './components/Pages/CommentsPage';
 import AddNewComment from './components/Pages/AddNewComment';
 import EditPost from './components/Pages/EditPost';
+import EditComment from './components/Pages/EditComment';
 
 
 const App = () => {
@@ -26,6 +27,7 @@ const App = () => {
         <Route path='/comments/:id' element={<CommentsPage />}/>
         <Route path='/newComment/:id' element={<AddNewComment />}/>
         <Route path='/editPost/:id' element={<EditPost />}/>
+        <Route path='/editComment/:id' element={<EditComment />}/>
       </Routes>
 
       <Footer />
