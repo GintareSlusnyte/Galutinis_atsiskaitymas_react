@@ -1,3 +1,5 @@
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTrash, faPenToSquare, faComments} from '@fortawesome/free-solid-svg-icons';
 import { NavLink, useParams } from "react-router-dom";
 import { useState, useEffect, useContext } from "react";
 import styled from "styled-components";
@@ -113,10 +115,10 @@ position: relative;
 const CommentsPage = () => {
   const { users, currentUser } = useContext(UsersContext);
   const { id } = useParams();
-  const [post, setPost] = useState(null);
-  const [user, setUser] = useState(null);
+  const [post, setPost] = useState();
+  const [user, setUser] = useState();
   const [comments, setComments] = useState([]);
-  const [newComment, setNewComment] = useState(null);
+  const [newComment] = useState();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -180,13 +182,21 @@ const CommentsPage = () => {
               <div className="user">
                 {
                   currentUser && post.userId === currentUser.id && 
-                  <NavLink to="/"><button onClick={deletePost}>Delete</button></NavLink>
+                  <NavLink to="/">
+                    <button onClick={deletePost}><FontAwesomeIcon icon={faTrash} /></button>
+                  </NavLink>
                 }
 
                 {
-                  currentUser && 
+                  currentUser && post.userId === currentUser.id && 
                     <NavLink to={`/newComment/${post.id}`}>
-                      <button>Reply</button>
+                      <button><FontAwesomeIcon icon={faComments} /></button>
+                    </NavLink>
+                }
+                {
+                  currentUser && post.userId === currentUser.id && 
+                    <NavLink to={`/editpost/${post.id}`}>
+                      <button><FontAwesomeIcon icon={faPenToSquare} /></button>
                     </NavLink>
                 }
                 <p>{user.userName}</p>
@@ -212,8 +222,18 @@ const CommentsPage = () => {
                   <div className="user">
                     {
                       currentUser && comment.userId === currentUser.id && 
-                      <NavLink to="/"><button onClick={() => deleteComment(comment.id)}>Delete</button></NavLink>
+                      <NavLink to="/">
+                        <button onClick={() => deleteComment(comment.id)}>Delete</button>
+                      </NavLink>
                     }
+
+                    {
+                      currentUser && comment.userId === currentUser.id && 
+                      <NavLink to="/">
+                        <button onClick={() => deleteComment(comment.id)}>Delete</button>
+                      </NavLink>
+                    }
+                    
                     <p>{commentUser.userName}</p>
                     <img src={commentUser.picture} alt="User" />
                   </div>
@@ -232,9 +252,12 @@ const CommentsPage = () => {
             {
               newComment.userId && 
                 <div className="user">
-                  {currentUser && newComment.userId === currentUser.id && (
+                  {currentUser && newComment.userId === currentUser.id && 
                     <button onClick={deleteComment}>Delete</button>
-                  )}
+                  }
+                  {currentUser && newComment.userId === currentUser.id && 
+                    <button onClick={deleteComment}>Delete</button>
+                  }
                   {newComment.userId && (
                     <p>{users.find((user) => user.id === newComment.userId)?.userName}</p>
                   )}

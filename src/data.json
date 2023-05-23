@@ -133,55 +133,42 @@
   ],
   "posts": [
     {
-      "id": 3,
-      "userId": 8,
-      "title": "Parents arrived...",
-      "article": "Ross hasn't worked at the museum for a year!"
-    },
-    {
       "id": 2,
       "userId": 7,
       "title": "Parents arrived...",
       "article": "Ross hasn't worked at the museum for a year!"
     },
     {
-      "id": "5888f75a-2cb8-483a-b29c-b31bb8817886",
+      "id": "c6136d8d-7c15-458e-a7ff-0bfb261662a5",
       "userId": 8,
-      "title": "hhhhhhhhhhhhh",
-      "article": "hdsssssssssssss"
+      "title": "d",
+      "article": "ff"
+    },
+    {
+      "id": "f8aa4aa0-2dc7-4eed-b13a-cc96cd40c1b1",
+      "title": "ef",
+      "article": "sd"
+    },
+    {
+      "id": "88cee8b4-7015-419f-acfd-14ac59bde5c4",
+      "userId": 8,
+      "title": "",
+      "article": "nn"
+    },
+    {
+      "id": "a1035624-cd39-4c6e-bb7a-29769bf3996e",
+      "userId": 1,
+      "title": "d",
+      "article": "d"
+    },
+    {
+      "id": "eaa11c5e-20d0-48a4-9621-a910d193097d",
+      "userId": 1,
+      "title": "hahaha",
+      "article": "shajahjahna"
     }
   ],
   "replies": [
-    {
-      "id": 8,
-      "postId": 3,
-      "userId": 1,
-      "replay": "Monica and Chandler are living together!"
-    },
-    {
-      "id": 10,
-      "postId": 3,
-      "userId": 4,
-      "replay": "I love Jacques Cousteau"
-    },
-    {
-      "id": 11,
-      "postId": 3,
-      "userId": 2,
-      "replay": "I wasn't supposed to put beef in the trifle..."
-    },
-    {
-      "id": 12,
-      "postId": 3,
-      "userId": 5,
-      "replay": "I wanna GOOOOOOO"
-    },
-    {
-      "id": "e17b66f2-beff-4b85-badb-a66dcbe59949",
-      "userId": 8,
-      "postId": "3",
-      "replay": "Ross married Rachel in Vegas. An got divorced. AGAIN!"
-    },
     {
       "id": "6ec086a4-8ece-44cc-a567-846d63f6d682",
       "userId": 8,
@@ -193,6 +180,12 @@
       "userId": 1,
       "postId": "2",
       "replay": "jjkjjkkk"
+    },
+    {
+      "id": "872df82d-0529-4cff-8e6e-14bcb469e836",
+      "userId": 1,
+      "postId": "a1035624-cd39-4c6e-bb7a-29769bf3996e",
+      "replay": "fdssdf"
     }
   ]
 }

@@ -90,22 +90,26 @@ const Post = ({ data }) => {
 
             {
                 currentUser && data.userId === currentUser.id &&
-                <button
+                <NavLink to={`/comments/${data.id}`}>
+                    <button
                     onClick={ () => setPosts({
                     type: PostsActionTypes.delete,
                     id: data.id
                     }) }
                     >Delete</button>
+                </NavLink>
             }
 
 {
                 currentUser && data.userId === currentUser.id &&
-                <button
+                <NavLink to={`/comments/${data.id}`}>
+                    <button
                     onClick={ () => setPosts({
                     type: PostsActionTypes.edit,
                     id: data.id
                     }) }
                     >Edit</button>
+                </NavLink>
             }
             
 

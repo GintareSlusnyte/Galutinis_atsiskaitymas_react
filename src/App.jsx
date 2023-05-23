@@ -9,6 +9,7 @@ import PostoKortelesPage from './components/Pages/PostoKortelesPage';
 import AddNewPost from './components/Pages/AddNewPost';
 import CommentsPage from './components/Pages/CommentsPage';
 import AddNewComment from './components/Pages/AddNewComment';
+import EditPost from './components/Pages/EditPost';
 
 
 const App = () => {
@@ -22,8 +23,9 @@ const App = () => {
         <Route path='/register' element={<RegisterPage />}/>
         <Route path='/profile' element={<PostoKortelesPage />}/>
         <Route path='/newPost' element={<AddNewPost />}/>
-        <Route path='comments/:id' element={<CommentsPage />}/>
+        <Route path='/comments/:id' element={<CommentsPage />}/>
         <Route path='/newComment/:id' element={<AddNewComment />}/>
+        <Route path='/editPost/:id' element={<EditPost />}/>
       </Routes>
 
       <Footer />
