@@ -71,6 +71,36 @@
       "userId": 8,
       "title": "Parents arrived...",
       "article": "Ross hasn't worked at the museum for a year!"
+    },
+    {
+      "id": "8a7e1529-2790-480b-a4b5-42949ff99d5f",
+      "userId": 5,
+      "title": "Joey doesn't share food",
+      "article": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate pariatur nobis mollitia unde dolores asperiores ullam architecto magnam saepe dignissimos."
+    },
+    {
+      "id": "8c7f349a-c322-4ca8-905f-3d685500d672",
+      "userId": 2,
+      "title": "Best Rachel Green Quotes",
+      "article": "Why can’t parents just stay parents, you know? Why do they have to become people?"
+    },
+    {
+      "id": "0368f8db-61a9-44fc-8b6f-42103604d5bb",
+      "userId": 3,
+      "title": "25 Laugh-Out-Loud Funny Chandler Bing Quotes To Feed Your 'Friends' Nostalgia",
+      "article": "When I first meet somebody it’s usually panic, anxiety, and a great deal of sweating."
+    },
+    {
+      "id": "50773aa3-2395-416e-819e-4178025dacc9",
+      "userId": 4,
+      "title": "Smelly cat",
+      "article": "Hello. This Is The Pigeon From The Balcony Calling To Apologize. I Shouldn't Have Knocked The Tickets Out Of The Pretty Lady's Hand. It Was All My Fault, Not Hers. Bye. Coo."
+    },
+    {
+      "id": "d0d20739-348e-4e3f-8ab9-4e91f9e93f78",
+      "userId": 1,
+      "title": "I’m FINE",
+      "article": "You-you-you… you threw my sandwich away? My sandwich? MY SANDWICH?"
     }
   ],
   "replies": [
@@ -85,6 +115,84 @@
       "userId": 8,
       "postId": "2",
       "replay": "Ross married Rachel in Vegas. An got divorced. AGAIN!"
+    },
+    {
+      "id": "07e12ead-df3b-4726-b5e2-7f7cfca32041",
+      "userId": 4,
+      "postId": "2",
+      "replay": "I love Jacques Cousteau"
+    },
+    {
+      "id": "3dc73668-b6b4-4204-9fc0-024e4da3583b",
+      "userId": 2,
+      "postId": "2",
+      "replay": "I wasn't supposed to put beef in the trifle..."
+    },
+    {
+      "id": "23866c20-90c5-47bf-bebd-f379d825334b",
+      "userId": 5,
+      "postId": "2",
+      "replay": "I wanna GOOOOOOOO"
+    },
+    {
+      "id": "332b9574-5b48-4cf6-98f1-909d273d0921",
+      "userId": 3,
+      "postId": "8c7f349a-c322-4ca8-905f-3d685500d672",
+      "replay": "Oh, I’m sorry. Did my back hurt your knife?"
+    },
+    {
+      "id": "6da6155c-2d92-4447-a3bc-a4cf0789e8f6",
+      "userId": 4,
+      "postId": "8a7e1529-2790-480b-a4b5-42949ff99d5f",
+      "replay": "That Is Brand-New Information!"
+    },
+    {
+      "id": "1ac6b272-a01e-4580-97f5-efdb75edc5bd",
+      "userId": 4,
+      "postId": "8c7f349a-c322-4ca8-905f-3d685500d672",
+      "replay": "Everyone I know is either getting married or getting pregnant...or getting promoted, and I'm getting coffee! And it's not even for me!"
+    },
+    {
+      "id": "a40debd9-4430-4505-a250-52bfefbfd8a8",
+      "userId": 4,
+      "postId": "0368f8db-61a9-44fc-8b6f-42103604d5bb",
+      "replay": "Cheese. It’s milk that you chew."
+    },
+    {
+      "id": "4aba9e69-1bb4-4af9-9237-930dcb25b8ad",
+      "userId": 6,
+      "postId": "8c7f349a-c322-4ca8-905f-3d685500d672",
+      "replay": "We are dessert stealers. We are living outside the law."
+    },
+    {
+      "id": "611272da-0493-44c2-8a87-8e2323b2aa85",
+      "userId": 6,
+      "postId": "8a7e1529-2790-480b-a4b5-42949ff99d5f",
+      "replay": "I Thought You Were Chandler"
+    },
+    {
+      "id": "9388cf01-0a8e-406f-8f82-bd8e5df6aaf6",
+      "userId": 6,
+      "postId": "0368f8db-61a9-44fc-8b6f-42103604d5bb",
+      "replay": "It’s always better to lie than to have the complicated discussion."
+    },
+    {
+      "id": "36277253-606c-45c9-aff2-51e4161d7144",
+      "userId": 6,
+      "postId": "50773aa3-2395-416e-819e-4178025dacc9",
+      "replay": "Who's Singing?"
+    },
+    {
+      "id": "ecc9e4d5-b467-4c06-a86d-538e4771d66b",
+      "userId": 7,
+      "postId": "0368f8db-61a9-44fc-8b6f-42103604d5bb",
+      "replay": "OH-MY-GOD!"
+    },
+    {
+      "id": "a5a385d4-f5f6-465f-8495-09536e33f823",
+      "userId": 1,
+      "postId": "50773aa3-2395-416e-819e-4178025dacc9",
+      "replay": "Unagi is a total state of awareness."
     }
   ]
 }
