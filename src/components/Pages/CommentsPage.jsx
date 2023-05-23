@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import { NavLink, useParams } from "react-router-dom";
 import { useState, useEffect, useContext } from "react";
 import styled from "styled-components";
 import UsersContext from "../../contexts/UsersContext";
@@ -111,86 +111,143 @@ position: relative;
 `;
 
 const CommentsPage = () => {
-    const { users, currentUser } = useContext(UsersContext);
-    const { id } = useParams();
-    const [post, setPost] = useState(null);
-    const [user, setUser] = useState(null);
-    const [comments, setComments] = useState([]);
-  
-    useEffect(() => {
-      const fetchData = async () => {
-        const postResponse = await fetch(`http://localhost:8080/posts/${id}`);
-        const postData = await postResponse.json();
-        setPost(postData);
-  
-        const userResponse = await fetch(`http://localhost:8080/users/${postData.userId}`);
-        const userData = await userResponse.json();
-        setUser(userData);
-  
-        const commentsResponse = await fetch(`http://localhost:8080/replies?postId=${id}`);
-        const commentsData = await commentsResponse.json();
-        setComments(commentsData);
-      };
-  
-      fetchData();
-    }, [id]);
-  
-    const deletePost = () => {
-      // Define the logic to delete the post here
+  const { users, currentUser } = useContext(UsersContext);
+  const { id } = useParams();
+  const [post, setPost] = useState(null);
+  const [user, setUser] = useState(null);
+  const [comments, setComments] = useState([]);
+  const [newComment, setNewComment] = useState(null);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const postResponse = await fetch(`http://localhost:8080/posts/${id}`);
+      const postData = await postResponse.json();
+      setPost(postData);
+
+      const userResponse = await fetch(`http://localhost:8080/users/${postData.userId}`);
+      const userData = await userResponse.json();
+      setUser(userData);
+
+      const commentsResponse = await fetch(`http://localhost:8080/replies?postId=${id}`);
+      const commentsData = await commentsResponse.json();
+      setComments(commentsData);
     };
-  
-    return (
-      <StyledMain>
-        <h1>Post</h1>
-  
-        {post ? (
-          <StyledPost>
-            <div className="post">
-              <h2>{post.title}</h2>
-              <p>{post.article}</p>
-            </div>
-  
-            {user && (
-                <div className="user">
-                  {currentUser && post.userId === currentUser.id && (
-                    <button onClick={deletePost}>Delete</button>
-                  )}
+
+    fetchData();
+  }, [id]);
+
+  const deletePost = () => {
+    fetch(`http://localhost:8080/posts/${id}`, {
+      method: "DELETE",
+    })
+      .then((response) => {
+        if (response.ok) {
+          console.log('postas ištrintas')
+        } else {
+          console.log('nepavyko ištrinti posto')
+        }
+      })
+  };
+
+
+  const deleteComment = (commentId) => {
+    fetch(`http://localhost:8080/replies/${commentId}`, {
+      method: "DELETE"
+    })
+      .then((response) => {
+        if (response.ok) {   
+          console.log('komentaras ištrintas') 
+        } else {
+          console.log('nepavyko ištrinti komentaro')
+        }
+      })
+  };
+
+  return (
+    <StyledMain>
+      <h1>Post</h1>
+
+      {
+        post ? 
+        <StyledPost>
+          <div className="post">
+            <h2>{post.title}</h2>
+            <p>{post.article}</p>
+          </div>
+
+          {
+            user && 
+              <div className="user">
+                {
+                  currentUser && post.userId === currentUser.id && 
+                  <NavLink to="/"><button onClick={deletePost}>Delete</button></NavLink>
+                }
+
+                {
+                  currentUser && 
+                    <NavLink to={`/newComment/${post.id}`}>
+                      <button>Reply</button>
+                    </NavLink>
+                }
                 <p>{user.userName}</p>
                 <img src={user.picture} alt="user picture" />
               </div>
-            )}
-          </StyledPost>
-        ) : (
-          <p>Loading post...</p>
-        )}
-  
-        <h1>Comments</h1>
-  
-        {comments.length > 0 ? (
-          comments.map((comment) => {
-            const commentUser = users.find((user) => user.id === comment.userId);
-  
-            return (
-              <StyledComment key={comment.id}>
-                <p>{comment.replay}</p>
-  
-                {commentUser && (
+          }
+        </StyledPost> : <p>Loading post...</p>
+      }
+
+      <h1>Comments</h1>
+
+      {comments.length > 0 ? 
+        comments.map((comment) => {
+          const commentUser = users.find((user) => user.id === comment.userId);
+
+          return (
+            <StyledComment 
+              key={comment.id}>
+              <p>{comment.replay}</p>
+
+              {
+                commentUser && 
                   <div className="user">
-                    {currentUser && comment.userId === currentUser.id && (
-                    <button onClick={deletePost}>Delete</button>
-                    )}
+                    {
+                      currentUser && comment.userId === currentUser.id && 
+                      <NavLink to="/"><button onClick={() => deleteComment(comment.id)}>Delete</button></NavLink>
+                    }
                     <p>{commentUser.userName}</p>
                     <img src={commentUser.picture} alt="User" />
                   </div>
-                )}
-              </StyledComment>
-            );
-          })
-        ) : (
-          <p>No comments available.</p>
-        )}
+              }
+            </StyledComment>
+          );
+        }) : <p>No comments available.</p>
+      }
+
+      {
+        newComment && 
+          <StyledComment 
+            key={newComment.id}>
+            <p>{newComment.replay}</p>
+
+            {
+              newComment.userId && 
+                <div className="user">
+                  {currentUser && newComment.userId === currentUser.id && (
+                    <button onClick={deleteComment}>Delete</button>
+                  )}
+                  {newComment.userId && (
+                    <p>{users.find((user) => user.id === newComment.userId)?.userName}</p>
+                  )}
+                  {newComment.userId && (
+                    <img src={users.find((user) => user.id === newComment.userId)?.picture} alt="User" />
+                  )}
+                </div>
+            }
+          </StyledComment>
+      }
+
       </StyledMain>
-    );
-  };
-  
-  export default CommentsPage;
+  );
+};
+
+export default CommentsPage;
