@@ -1,18 +1,17 @@
 import { useState, useContext } from "react";
 import { useNavigate, useParams } from "react-router-dom";
+import { v4 as generatedId } from 'uuid';
 import UsersContext from "../../contexts/UsersContext";
-import PostsContext from "../../contexts/PostsContext";
+import CommentsContext from "../../contexts/CommentsContext";
 import styled from "styled-components";
 
-
-const EditPost = () => {
+const EditComment = () => {
     const navigate = useNavigate();
     const { id } = useParams();
     const { currentUser } = useContext(UsersContext);
-    const { setPosts, PostsActionTypes } = useContext(PostsContext);
+    const { setComments, CommentsActionTypes } = useContext(CommentsContext);
     const [ formInputs, setFormInputs ] = useState({
-        title: '',
-        article: ''
+        replay: ''
     });
 
     const inputHandler = e => {
@@ -24,27 +23,27 @@ const EditPost = () => {
 
     const formHandler = async e => {
         e.preventDefault();
-        const editPost = {
-            id: id,
+        const editComment = {
+            id: generatedId(),
             userId: currentUser.id,
-            title: formInputs.title,
-            article: formInputs.article
+            postId: id,
+            replay: formInputs.replay
         };
 
         try {
-            const response = await fetch(`http://localhost:8080/posts/${id}`, {
+            const response = await fetch(`http://localhost:8080/replies/${id}`, {
                 method: "PUT",
                 headers: {
                     "Content-Type": "application/json"
                 },
-                body: JSON.stringify(editPost)
+                body: JSON.stringify(editComment)
             });
 
             if (response.ok) {
-                setPosts({
-                    type: PostsActionTypes.edit,
-                    id: id,
-                    data: editPost
+                setComments({
+                    type: CommentsActionTypes.edit,
+
+                    data: editComment
                 });
                 navigate(`/comments/${id}`);
             } else {
@@ -60,23 +59,14 @@ const EditPost = () => {
         <main>
             <h1>Edit Your Post</h1>
             <form onSubmit={formHandler}>
+                
                 <div>
-                    <label htmlFor="title">Title:</label>
+                    <label htmlFor="replay">Edit Your Comment:</label>
                     <input
                         type="text"
-                        name="title"
-                        id="title"
-                        value={formInputs.title}
-                        onChange={inputHandler}
-                    />
-                </div>
-                <div>
-                    <label htmlFor="article">Article:</label>
-                    <input
-                        type="text"
-                        name="article"
-                        id="article"
-                        value={formInputs.article}
+                        name="replay"
+                        id="replay"
+                        value={formInputs.replay}
                         onChange={inputHandler}
                     />
                 </div>
@@ -85,5 +75,6 @@ const EditPost = () => {
         </main>
      );
 }
+
  
-export default EditPost;
+export default EditComment;
