@@ -8,10 +8,10 @@ import styled from "styled-components";
 const StyledMain = styled.main`
     height: calc(100vh - 150px);
     text-align: center;
-    h1{
+    h1 {
         padding: 15px;
     }
-    >form{
+    >form {
         margin: 100px auto;
         height: 400px;
         width: 500px;
@@ -21,18 +21,17 @@ const StyledMain = styled.main`
         align-items: center;
         gap: 20px;
         box-shadow: 0 0 1px;
-        >div >input{
+        >div >input {
             margin: 10px;
             width: 350px;
         }
-        #article{
+        #article {
             height: 200px;
         }
     }
-`
+`;
 
 const AddNewPost = () => {
-
     const navigate = useNavigate();
     const { currentUser } = useContext(UsersContext);
     const { setPosts, PostsActionTypes } = useContext(PostsContext);
@@ -44,50 +43,72 @@ const AddNewPost = () => {
     const inputHandler = e => {
         setFormInputs({
             ...formInputs,
-            [e.target.name]:e.target.value
+            [e.target.name]: e.target.value
         });
     };
 
-    const formHandler = e => {
+    const formHandler = async e => {
         e.preventDefault();
         const newPost = {
             id: generatedId(),
             userId: currentUser.id,
             title: formInputs.title,
             article: formInputs.article
-        }
-        setPosts({
-            type: PostsActionTypes.add,
-            data: newPost
-        });
-        navigate('/');
-    }
+        };
 
-    return ( 
+        try {
+            const response = await fetch('http://localhost:8080/posts', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(newPost)
+            });
+
+            if (response.ok) {
+                // Post added successfully
+                setPosts({
+                    type: PostsActionTypes.add,
+                    data: newPost
+                });
+                navigate('/');
+            } else {
+                // Handle error if the request fails
+                console.error('Failed to add post.');
+            }
+        } catch (error) {
+            console.error('An error occurred while adding the post:', error);
+        }
+    };
+
+    return (
         <StyledMain>
             <h1>Add New Post</h1>
-            <form onSubmit={(e) => {formHandler(e)}}>
+            <form onSubmit={formHandler}>
                 <div>
                     <label htmlFor="title">Title:</label>
-                    <input type="text" 
-                        name="title" id="title"
+                    <input
+                        type="text"
+                        name="title"
+                        id="title"
                         value={formInputs.title}
-                        onChange={(e) => {inputHandler(e)}}
+                        onChange={inputHandler}
                     />
                 </div>
                 <div>
                     <label htmlFor="article">Article:</label>
-                    <input type="text" 
-                        name="article" id="article"
+                    <input
+                        type="text"
+                        name="article"
+                        id="article"
                         value={formInputs.article}
-                        onChange={(e) => {inputHandler(e)}}
+                        onChange={inputHandler}
                     />
                 </div>
-                
                 <input type="submit" value="Create New Post" />
             </form>
         </StyledMain>
-     );
-}
- 
+    );
+};
+
 export default AddNewPost;

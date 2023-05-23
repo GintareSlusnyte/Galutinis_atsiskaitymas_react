@@ -36,8 +36,7 @@ const RegisterPage = () => {
         passwordRepeat: ''
     });
 
-    // const [ failedSignIn, setFailedSignIn ] = useState(false);
-    const { setUsers, UsersActionTypes } = useContext(UsersContext);
+    const { users, setUsers, UsersActionTypes } = useContext(UsersContext);
 
     const navigate = useNavigate();
 
@@ -48,22 +47,44 @@ const RegisterPage = () => {
         });
     }
 
-    const formHandler = e => {
+    const formHandler = async (e) => {
         e.preventDefault();
+        
         const newUser = {
-            id: generatedId(),
-            userName: formInputs.userName,
-            email: formInputs.email,
-            picture: formInputs.picture,
-            password: formInputs.password,
-            passwordRepeat: formInputs.passwordRepeat
+          id: generatedId(),
+          userName: formInputs.userName,
+          email: formInputs.email,
+          picture: formInputs.picture,
+          password: formInputs.password,
+          passwordRepeat: formInputs.passwordRepeat
+        };
+      
+        try {
+          const response = await fetch('http://localhost:8080/users', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(newUser)
+          });
+      
+          if (response.ok) {
+            // User added successfully
+            const updatedUsers = [...users, newUser];
+            setUsers({
+              type: UsersActionTypes.update,
+              data: updatedUsers
+            });
+            navigate("/profile");
+          } else {
+            // Handle error if the request fails
+            console.error('Failed to add user.');
+          }
+        } catch (error) {
+          console.error('An error occurred while adding the user:', error);
         }
-        setUsers({
-            type: UsersActionTypes.add,
-            data: newUser
-        });
-        navigate('/');
-    }
+      };
+    
 
     return ( 
         <StyledMain>
