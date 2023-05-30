@@ -297,7 +297,7 @@ const CommentsPage = () => {
                 }
                 {
                   currentUser && post.userId === currentUser.id && 
-                    <NavLink className='edit' to={`/editpost/${post.id}`}>
+                  <NavLink className='edit' to={`/editpost/${post.id}`}>
                       <button><FontAwesomeIcon icon={faPenToSquare} /></button>
                     </NavLink>
                 }

@@ -82,15 +82,15 @@ const RegisterPage = () => {
           });
       
           if (response.ok) {
-            // User added successfully
+           
             const updatedUsers = [...users, newUser];
             setUsers({
               type: UsersActionTypes.update,
               data: updatedUsers
             });
-            navigate(`/profile/`);
+            navigate(`/profile`);
           } else {
-            // Handle error if the request fails
+            
             console.error('Failed to add user.');
           }
         } catch (error) {
